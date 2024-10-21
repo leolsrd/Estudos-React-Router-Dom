@@ -1,7 +1,4 @@
-/* eslint-disable no-undef */
 import { useState } from "react";
-// ? Ainda não testei com redirect
-// import { redirect } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import NameDetail from "./NameDetail";
 
