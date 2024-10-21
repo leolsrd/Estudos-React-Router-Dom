@@ -5,27 +5,25 @@ import NameDetail from "./NameDetail";
 const Name = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
+  var [renderNameDetail, setRenderNameDetail] = useState("");
 
-  const handleChange = (e) => {
+  function handleChange(e) {
     setName(e.target.value);
-  };
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(`Valor submetido: ${name}`);
-  };
-
-  const handleClick = (e) => {
-    e.preventDefault();
     if (name === "") {
-      return navigate("/name");
-    } else {
-      const retorno = (
+      setRenderNameDetail("");
+      setRenderNameDetail(
         <div>
-          <NameDetail name={name} />
+          <p>Nome não pode ser vazio</p>
         </div>
       );
-      return retorno;
+      return navigate("/name");
+    } else {
+      setRenderNameDetail(<NameDetail name={name} />);
     }
   };
 
@@ -39,10 +37,8 @@ const Name = () => {
       </label>
       <br />
       <br />
-      <button type="submit" onClick={handleClick}>
-        Enviar
-      </button>
-      {name.length >= 3 ? <NameDetail name={name} /> : ""}
+      <button type="submit">Enviar</button>
+      <div className="nameDetail">{renderNameDetail}</div>
     </form>
   );
 };

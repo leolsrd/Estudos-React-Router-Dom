@@ -2,12 +2,9 @@
 import PropTypes from "prop-types";
 
 const NameDetail = ({ name }) => {
-  // const { state } = useLocation();
-  // const { idName } = state();
-
   return (
     <div>
-      <h1>Olá, {name}</h1>
+      <h2>Olá, {name}</h2>
     </div>
   );
 };
